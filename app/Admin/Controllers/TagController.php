@@ -10,6 +10,7 @@ use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
 
+
 class TagController extends Controller
 {
     use HasResourceActions;
@@ -22,6 +23,7 @@ class TagController extends Controller
      */
     public function index(Content $content)
     {
+    
         return $content
             ->header('Index')
             ->description('description')

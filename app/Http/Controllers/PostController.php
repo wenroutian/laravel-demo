@@ -3,17 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Post;
-use Illuminate\Http\Request;
+use App\Repositories\Criteria\Post\TagFilter;
+use App\Repositories\PostRepositoryEloquent;
+use Illuminate\Database\Query\Builder;
+
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(PostRepositoryEloquent $repositories)
     {
-        $post = Post::with(['tag' => function ($query) {
-            if (\request('tag_id')) {
-                $query->where('id', '=', \request('tag_id'));
-            }
-        }])->paginate();
+        $post = $repositories->pushCriteria(TagFilter::class)->paginate();
 
         return view('post.index', compact('post'));
     }

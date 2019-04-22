@@ -2,7 +2,9 @@
 
 use Illuminate\Routing\Router;
 
+
 Admin::registerAuthRoutes();
+
 
 Route::group([
     'prefix' => config('admin.route.prefix'),
@@ -14,5 +16,9 @@ Route::group([
 
     $router->resource('/post', PostController::class);
     $router->resource('/tag', TagController::class);
+
+    $router->get('/test',function (){
+        Post::all();
+    });
 
 });

@@ -22,10 +22,10 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
      */
     public function model()
     {
-        return Post::class;
+        return 'App\\Post';
     }
 
-    
+
 
     /**
      * Boot up the repository, pushing criteria
@@ -34,5 +34,5 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
 }

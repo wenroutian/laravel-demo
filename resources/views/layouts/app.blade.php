@@ -90,11 +90,14 @@
                 <div class="list-group">
                     <!--获取所有的tag下的文章数-->
                     <?php
-                    $tag_info = \App\Tag::withCount('post')->get();
+                    /**
+                     * @var $tag \App\Tag
+                     */
+                    $tag_info = \App\Tag::withCount('post')->whereHas('post')->get();
                     ?>
                     @foreach($tag_info as $tag)
                         <a class="list-group-item" style="text-align: center"
-                           href="{{route('post',['tag_id'=>$tag->id])}}">{{ $tag->name.'['.$tag->post_count.']' }}</a>
+                           href="{{route('post',['tag_id'=>$tag->id,'with'=>'tag'])}}">{{ $tag->name.'['.$tag->post_count.']' }}</a>
                     @endforeach
                 </div>
 

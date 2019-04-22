@@ -1,9 +1,16 @@
+<?php
+
+/**
+ * @var $item \App\Post
+ */
+?>
+
+
 @extends('layouts.app')
 
 @section('content')
 
     <div class="list-group">
-
         @foreach($post as $item)
             <div class="list-group-item">
                 <a style="text-align: center"

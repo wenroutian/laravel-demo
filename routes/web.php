@@ -1,5 +1,7 @@
 <?php
 
+use Inertia\Inertia;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,14 +14,13 @@
 */
 
 Route::get('/', function () {
-    return redirect('/home');
+    return Inertia::render('Welcome');
 });
 
-Auth::routes();
+Route::get('/about', function () {
+    return Inertia::render('About');
+});
 
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/post', 'PostController@index')->name('post');
-
-Route::get('/post/{post}','PostController@detail')->name('post.detail');
+Route::get('/contact', function () {
+    return Inertia::render('Contact');
+});

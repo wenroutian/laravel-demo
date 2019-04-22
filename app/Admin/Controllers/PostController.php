@@ -118,8 +118,7 @@ class PostController extends Controller
     protected function form()
     {
         $form = new Form(new Post);
-
-        $form->textarea('title');
+        $form->text('title');
         $form->editor('content');
         $form->select('tag_id')->options(
             Tag::all()->pluck('name', 'id')

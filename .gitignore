@@ -13,3 +13,8 @@ yarn-error.log
 _ide_helper.php
 .idea/*
 
+/public/css
+/public/js
+.tags
+.tags_sorted_by_file
+.babelrc
